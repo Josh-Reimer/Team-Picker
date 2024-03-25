@@ -1,6 +1,5 @@
 # Team-Picker
 This is a simple html random team generator. It can take a list of names and split them into any number of teams. 
-<<<<<<< HEAD
 You can find an online version at [teampicker](http://teampicker.ca)
 ## How to setup
 If you'd like to set this up locally on your machine, first clone the repository.
@@ -11,6 +10,3 @@ python3 -m http.server 8080
 ```
 After running these commands, open a web browser to http://localhost:8080
 Enjoy!
-=======
-You can find an online version at [teampicker.infinityfreeapp.com](url)
->>>>>>> dfbdc29 (Update README.md)
