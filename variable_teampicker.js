@@ -1,6 +1,7 @@
 var textarea = document.getElementById("names");
 var team_divs = document.getElementsByClassName("team_divs");
 //is a list^
+
 function pickRandom(argument) {
   if (typeof argument === 'number') {
     return Math.floor(Math.random() * Math.floor(argument)) + 1;
@@ -40,19 +41,7 @@ function pickTeams(team_members, number_of_teams) {
     //store all teams in this list so I don't need to create arrays based on a arbitrary number
   ];
   let shuffled_members = [];
-  /*
-  let team_members = [
-    "Myles",
-    "Kade",
-    "Carter",
-    "Josh",
-    "Jack",
-    "Logan",
-    "Victor",
-    "Andy",
-    "Justin"
-  ];
-*/
+
   let team_members_copy = team_members.slice();
   //making a copy of original array so it doesn't modify the original array
 
@@ -72,8 +61,10 @@ function pickTeams(team_members, number_of_teams) {
   }
   return teams;
 }
+
 var textareaValue;
 function getTeams() {
+  check_radio_buttons();
   if (textarea.value.replace(/\s+/g, '') != '') {
     //if there is a non white space value in the input box
 
@@ -82,6 +73,15 @@ function getTeams() {
       //not present, generate new teams
 
       textareaValue = textarea.value.split("\n");
+      check_radio_buttons();
+      if (number_of_teams > textareaValue.length) {
+        //make a popup and dont calculate teams
+        let alert_text = `You cannot split ${textareaValue.length} team members into ${number_of_teams} teams`;
+        alert(alert_text);
+
+        return null;
+      }
+
 
       check_radio_buttons();
       let teams = pickTeams(textareaValue, number_of_teams);
@@ -104,6 +104,13 @@ function getTeams() {
       //if there are teams already generated,
       //regenerate them
       check_radio_buttons();
+      if (number_of_teams > textareaValue.length) {
+        //make a popup and dont calculate teams
+        let alert_text = `You cannot split ${textareaValue.length} team members into ${number_of_teams} teams`;
+        alert(alert_text);
+
+        return null;
+      }
       clearfields();
 
       teams_second_time = pickTeams(textareaValue, number_of_teams);
