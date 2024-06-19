@@ -136,10 +136,14 @@
         <input type="radio" value="2" name="teams" id="rbutton1" checked>2 teams<br>
         <input type="radio" value="3" name="teams" id="rbutton2">3 teams<br>
         <input type="radio" value="4" name="teams" id="rbutton3">4 teams<br>
+        <div class="slidercontainer">
+          <input type="range" min="2" max="20" value="2" id="teams_slider">
+          <p id="slider_value"></p>
+        </div>
       </fieldset>
     </div>
   </div>
-  <button id="options" >Options</button>
+  <button id="options">Options</button>
   <script src="variable_teampicker.js"></script>
   <script>
     var popup_controls = document.getElementById("popup_controls");
@@ -166,6 +170,38 @@
     var radio_button1 = document.getElementById("rbutton1");
     var radio_button2 = document.getElementById("rbutton2");
     var radio_button3 = document.getElementById("rbutton3");
+    radio_button1.oninput = function() {
+      slider.value = 2;
+      slider_value.innerHTML = this.value;
+    }
+    radio_button2.oninput = function() {
+      slider.value = 3;
+      slider_value.innerHTML = this.value;
+    }
+    radio_button3.oninput = function() {
+      slider.value = 4;
+      slider_value.innerHTML = this.value;
+    }
+
+    var slider = document.getElementById("teams_slider");
+    var slider_value = document.getElementById("slider_value");
+    slider_value.innerHTML = slider.value;
+   
+    slider.oninput = function() {
+      number_of_teams = this.value;
+      slider_value.innerHTML = this.value;
+      if (this.value == "2") {
+        radio_button1.checked = true;
+      } else if (this.value == "3") {
+        radio_button2.checked = true;
+      } else if (this.value == "4") {
+        radio_button3.checked = true;
+      } else {
+        radio_button1.checked = false;
+        radio_button2.checked = false;
+        radio_button3.checked = false;
+      }
+    }
     var number_of_teams;
     function check_radio_buttons() {
       //this function checks the number of
@@ -180,7 +216,7 @@
       } else if (radio_button3.checked) {
         number_of_teams = 4;
       }
-      
+
     }
   </script>
 </body>
