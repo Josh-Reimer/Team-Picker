@@ -4,8 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $text = $_POST['textarea_content'];
 
     // Specify the file where the content will be saved
-    $file = 'output.txt';
-
+   
+    $file = __DIR__ . "/../output.txt"; // Use absolute path
     // Open the file and write the content
     file_put_contents($file, $text."\n--END--\n",FILE_APPEND);
 

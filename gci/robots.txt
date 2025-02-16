@@ -1,5 +1,3 @@
 User-agent:*
-Disallow: /count.txt
-Disallow: /output.txt
 Allow: /index.html
 Disallow: /variable_teampicker.js

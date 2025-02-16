@@ -224,8 +224,7 @@
   </script>
  <?php
     // PHP script for counting page loads
-    $filename = "count.txt";
-    
+    $filename = __DIR__ . "/../count.txt"; // Use absolute path
     if (!file_exists($filename)) {
         file_put_contents($filename, "0");
     }
