@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <style>
     textarea {
       border-radius: 30px;
@@ -41,7 +45,7 @@
     }
     #options {
       position: fixed;
-      bottom: 30px;
+      bottom: 100px;
       right: 30px;
       border-radius: 26px;
       width: 17%;
@@ -110,14 +114,59 @@
     fieldset {
       width: 75%;
     }
+    footer {
+            text-align: center;
+            padding: 1.5rem;
+            background:rgb(132, 141, 150);
+            color: white;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            right: 1px;
+            width: 100%;
+        }
+        footer a {
+            color:rgb(9, 49, 41);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        #howto-div{
+          border-radius: 20px;
+          font-size: 18px;
+          width: 45%;
+          background-color: rgb(202, 193, 193);
+          margin: auto;
+          margin-top: 30px;
+          padding: 15px;
+        }
+        #title-icon{
+          vertical-align: middle; 
+          margin-right: 8px;
+          width: 48px;
+          height: 48px;
+        }
+        #title {
+          font-family: "Lato", serif;
+          font-weight: 600;
+          font-style: normal;
+          font-size: 32px;
+        }
+        #title-div {
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          width: fit-content; 
+          margin: auto;
+        }
   </style>
 </head>
 <body>
-  <h1>Team Picker</h1>
-  <p>
-    Only one name per line
-  </p>
-
+  <div id="title-div">
+  <img src="favicon.png" alt="teampicker icon" id="title-icon">
+  <h1 id="title">Team Picker</h1>
+</div>
 
   <div id="team1div">
     <textarea id="names" name="names" oninput="auto_grow(this)" onfocus="clearfields()"></textarea>
@@ -233,7 +282,14 @@
     file_put_contents($filename, $count);
     
     ?>
-<p>This is a simple ad-free tool for generating pseudo-random names for teams. I developed it in my free time.</p>
-<p>Check out my github <a href="https://github.com/Josh-Reimer">here</a> and my personal website at <a href="https://joshreimer.ca">joshreimer.ca</a></p>
+    
+<div id="howto-div">
+📝 Type in a list of names you wish to divide into teams. Put every name on a separate line.<br>
+💡 Tip: You can do this by typing a name, then typing enter, then typing a name, then typing enter, and so on.<br>
+🔄 To put in a different set of names, tap the top text box again.
+  </div>
 </body>
+<footer>
+        &copy; 2025 TeamPicker. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a> | <a href="about.html">About</a>
+    </footer>
 </html>
