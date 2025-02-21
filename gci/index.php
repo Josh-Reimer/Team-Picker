@@ -76,42 +76,38 @@
 
     #popup_content {
       background-color: #fefefe;
-      margin: 15% auto;
-      /* 15% from the top and centered */
       padding: 20px;
       border: 1px solid #888;
       border-radius: 15px;
       width: 70%;
       max-width: 500px;
-      /* Could be more or less, depending on screen size */
-      /*
-      -webkit-animation-name: animatetop;
-      -webkit-animation-duration: 0.5s;
-      whats the difference between
-      -webkit-animation and animation?
-      */
-      animation-name: animatetop;
-      animation-duration: 0.4s
+      transform: scale(0.3);
+      opacity: 0;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
     }
     #popup_controls {
-      display: none;
-      /* Hidden by default */
       position: fixed;
-      /* Stay in place */
-      z-index: 1;
-      /* Sit on top */
       left: 0;
       top: 0;
       width: 100%;
-      /* Full width */
       height: 100%;
-      /* Full height */
-      overflow: auto;
-      /* Enable scroll if needed */
-      background-color: rgb(0,0,0);
-      /* Fallback color */
-      background-color: rgba(0,0,0,0.4);
-      /* Black w/ opacity */
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      pointer-events: none;
+    }
+    #popup_controls.show-modal #popup_content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    #popup_controls.show-modal {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
     }
     fieldset {
       width: 80%;
@@ -213,7 +209,7 @@
     var button = document.getElementById("options");
     var span = document.getElementById("close");
     button.onclick = function() {
-      popup_controls.style.display = "block";
+      popup_controls.classList.add('show-modal');
       //this line displays the modal
       //or in other words, the popup
     }
@@ -221,13 +217,13 @@
       //the span element contains an X for
       //the user to click on to close the modal
       check_radio_buttons();
-      popup_controls.style.display = "none";
+      popup_controls.classList.remove('show-modal');
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == popup_controls) {
         check_radio_buttons();
-        popup_controls.style.display = "none";
+        popup_controls.classList.remove('show-modal');
       }
     }
     var radio_button1 = document.getElementById("rbutton1");
