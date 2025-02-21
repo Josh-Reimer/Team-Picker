@@ -80,7 +80,9 @@
       /* 15% from the top and centered */
       padding: 20px;
       border: 1px solid #888;
-      width: 80%;
+      border-radius: 15px;
+      width: 70%;
+      max-width: 500px;
       /* Could be more or less, depending on screen size */
       /*
       -webkit-animation-name: animatetop;
@@ -112,7 +114,8 @@
       /* Black w/ opacity */
     }
     fieldset {
-      width: 75%;
+      width: 80%;
+      border-radius: 15px;
     }
     footer {
             text-align: center;
@@ -159,6 +162,14 @@
           justify-content: center; 
           width: fit-content; 
           margin: auto;
+        }
+        .slidercontainer {
+          margin-top: 11px;
+        }
+        #slider_value {
+          font-size: 20px;
+          color: blue;
+          font-weight: bold;
         }
   </style>
 </head>
