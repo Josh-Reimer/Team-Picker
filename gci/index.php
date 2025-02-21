@@ -45,11 +45,12 @@
     }
     #options {
       position: fixed;
-      bottom: 100px;
+      bottom: 110px;
       right: 30px;
-      border-radius: 26px;
+      border-radius: 20px;
       width: 17%;
       height: 6%;
+      min-width: 60px;
       font-size: 15px;
     }
     #close:hover,
@@ -133,12 +134,13 @@
         }
         #howto-div{
           border-radius: 20px;
-          font-size: 18px;
+          font-size: 16px;
           width: 45%;
+          min-width: 300px;
           background-color: rgb(202, 193, 193);
           margin: auto;
           margin-top: 30px;
-          padding: 15px;
+          padding: 13px;
         }
         #title-icon{
           vertical-align: middle; 
@@ -202,7 +204,7 @@
       </fieldset>
     </div>
   </div>
-  <button id="options">Options</button>
+  <button id="options">Options </button>
   <script src="variable_teampicker.js"></script>
   <script>
     var popup_controls = document.getElementById("popup_controls");
