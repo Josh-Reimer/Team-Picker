@@ -1,3 +1,4 @@
 User-agent:*
-Allow: /index.html
+Allow: /index.php
 Disallow: /variable_teampicker.js
+Allow /about.html
