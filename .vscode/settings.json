@@ -1,0 +1,4 @@
+{
+    "phpserver.ip": "0.0.0.0",
+    "phpserver.autoOpenOnReload": true
+}

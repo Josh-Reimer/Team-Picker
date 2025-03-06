@@ -1,0 +1,41 @@
+{
+  "short_name": "TeamPicker",
+  "name": "Team Picker",
+  "icons": [
+    {
+      "src": "images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "/",
+  "start_url": "./",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#FFFFFF",
+  "description": "A simple tool to randomly divide people into teams",
+  "orientation": "portrait",
+  "categories": ["utilities", "productivity"],
+  "prefer_related_applications": false
+}

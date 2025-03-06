@@ -1,2 +1,8 @@
-This is my backup of [teampicker](teampicker.ca). It has all the files used in the public site.
-This is a private repository and should remain that way.
+# TeamPicker-pwa
+My teampicker app as a progressive web app
+
+## Features
+- Offline support
+- Add to home screen
+- Customizable number of teams
+- Customizable team names
