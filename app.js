@@ -69,17 +69,25 @@ function pickTeams(team_members, number_of_teams) {
 var textareaValue;
 function getTeams() {
   check_radio_buttons();
-if(textarea.value.includes("<") || textarea.value.includes(">")){
+  // First remove empty lines and lines with only whitespace
+  textareaValue = textarea.value
+    .split('\n')
+    .filter(line => line.trim() !== '')  // Remove empty lines and whitespace-only lines
+    .join('\n');
+
+if(textareaValue.includes("<") || textareaValue.includes(">")){
         alert("You cannot use < or > special characters");
   } else {
-  if (textarea.value.replace(/\s+/g, '') != '') {
+
+  if (textareaValue.replace(/\s+/g, '') != '') {
     //if there is a non white space value in the input box
 
     if (team_divs[0] == null) {
       //if the random teams that were generated are
       //not present, generate new teams
 
-      textareaValue = textarea.value.split("\n");
+      textareaValue = textareaValue.split("\n");
+      
       check_radio_buttons();
       if (number_of_teams > textareaValue.length) {
         //make a popup and dont calculate teams
@@ -151,7 +159,7 @@ function saveToFile(teamslist) {
         
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('Teams saved successfully');
+                
             }
         };
         
@@ -162,9 +170,9 @@ function saveToFile(teamslist) {
         // If offline, store in localStorage
         try {
             localStorage.setItem('savedTeams', JSON.stringify(textareaContent));
-            console.log('Teams saved to local storage');
+           
         } catch (e) {
-            console.log('Could not save teams:', e);
+           
         }
     }
 }
