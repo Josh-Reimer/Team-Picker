@@ -55,14 +55,23 @@
     }
     #options {
       position: fixed;
-      bottom: 110px;
-      right: 30px;
-      border-radius: 20px;
-      width: 17%;
-      height: 6%;
-      min-width: 60px;
+      bottom: 100px;
+      right: 10px;
+      border-radius: 16px;
+      width: 70px;
+      height: 25px;
       font-size: 15px;
       color: black;
+      padding-right: 50px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      padding-top: 15px;
+      padding-right: 10px;
+      padding-bottom: 35px;
+      padding-left: 6px;
+      min-width: 80px; /* Ensure enough space */
     }
     #close:hover,
     #close:focus {
@@ -244,7 +253,7 @@
         </fieldset>
       </div>
     </div>
-    <button id="options">Options </button>
+    <button id="options"><b>Options</b></button>
     
     <script>
       var popup_controls = document.getElementById("popup_controls");
