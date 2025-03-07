@@ -26,6 +26,7 @@ function clearfields() {
     team_divs[0].remove();
   }
   textarea.value = '';
+  originalNames = null; // Reset originalNames when clearing fields
   textarea.style.height = 0;
   textarea.style.height = textarea.scrollHeight + "px";
 }
@@ -67,87 +68,51 @@ function pickTeams(team_members, number_of_teams) {
 }
 
 var textareaValue;
+var originalNames = null; // Store the original list of names
 function getTeams() {
   check_radio_buttons();
-  // First remove empty lines and lines with only whitespace
-  textareaValue = textarea.value
-    .split('\n')
-    .filter(line => line.trim() !== '')  // Remove empty lines and whitespace-only lines
-    .join('\n');
-
-if(textareaValue.includes("<") || textareaValue.includes(">")){
-        alert("You cannot use < or > special characters");
-  } else {
-
-  if (textareaValue.replace(/\s+/g, '') != '') {
-    //if there is a non white space value in the input box
-
-    if (team_divs[0] == null) {
-      //if the random teams that were generated are
-      //not present, generate new teams
-
-      textareaValue = textareaValue.split("\n");
-      
-      check_radio_buttons();
-      if (number_of_teams > textareaValue.length) {
-        //make a popup and dont calculate teams
-        let alert_text = `You cannot split ${textareaValue.length} team members into ${number_of_teams} teams`;
-        alert(alert_text);
-
-        return null;
-      }
-
-      check_radio_buttons();
-      let teams = pickTeams(textareaValue, number_of_teams);
-	    saveToFile(teams);
-      textarea.insertAdjacentHTML("afterend", getTeamsHTML(teams.slice(1,)));
-
-      let textarea_output_string = "";
-      for (let e = 0; e < teams[0].length; e++) {
-        if (e != (teams[0].length-1)) {
-          textarea_output_string += teams[0][e]+"\n";
-        } else {
-          textarea_output_string += teams[0][e];
-        }
-      }
-
-      textarea.value = textarea_output_string;
-      textarea.setAttribute("style", "height:" + (textarea.scrollHeight) + "px;overflow-y:hidden;");
-      shrink(textarea);
-    } else {
-      //if there are teams already generated,
-      //regenerate them
-      check_radio_buttons();
-      if (number_of_teams > textareaValue.length) {
-        //make a popup and dont calculate teams
-        let alert_text = `You cannot split ${textareaValue.length} team members into ${number_of_teams} teams`;
-        alert(alert_text);
-
-        return null;
-      }
-      clearfields();
-
-      teams_second_time = pickTeams(textareaValue, number_of_teams);
-
-      textarea.insertAdjacentHTML("afterend", getTeamsHTML(teams_second_time.slice(1,)));
-      let textarea_output_string = "";
-
-      for (let e = 0; e < teams_second_time[0].length; e++) {
-        if (e != (teams_second_time[0].length-1)) {
-          textarea_output_string += teams_second_time[0][e]+"\n";
-        } else {
-          textarea_output_string += teams_second_time[0][e];
-        }
-      }
-
-      textarea.value = textarea_output_string;
-      textarea.setAttribute("style", "height:" + (textarea.scrollHeight) + "px;overflow-y:hidden;");
-      shrink(textarea);
-    }
+  
+  // If originalNames is null, this is our first run, so store the original names
+  if (originalNames === null) {
+    originalNames = textarea.value
+      .split('\n')
+      .filter(line => line.trim() !== '');  // Remove empty lines and whitespace-only lines
   }
-}
-}
 
+  if (originalNames.some(name => name.includes("<") || name.includes(">"))) {
+    alert("You cannot use < or > special characters");
+    return;
+  }
+
+  if (originalNames.length === 0) {
+    return; // Exit if no names
+  }
+
+  check_radio_buttons();
+  if (number_of_teams > originalNames.length) {
+    let alert_text = `You cannot split ${originalNames.length} team members into ${number_of_teams} teams`;
+    alert(alert_text);
+    return;
+  }
+
+  // Clear any existing team divs
+  while (team_divs.length > 0) {
+    team_divs[0].remove();
+  }
+
+  // Generate new teams using the original names
+  let teams = pickTeams(originalNames, number_of_teams);
+  saveToFile(teams);
+  
+  // Display the teams
+  textarea.insertAdjacentHTML("afterend", getTeamsHTML(teams.slice(1)));
+
+  // Update textarea with first team
+  let textarea_output_string = teams[0].join("\n");
+  textarea.value = textarea_output_string;
+  textarea.setAttribute("style", "height:" + (textarea.scrollHeight) + "px;overflow-y:hidden;");
+  shrink(textarea);
+}
 
 function saveToFile(teamslist) {
     // Get the textarea content
