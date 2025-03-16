@@ -29,6 +29,8 @@
       border-radius: 30px;
       text-align: center;
       margin-top: 10px;
+      background-color: white;
+      color: rgb(71, 68, 68);
     }
     body {
       background-color: #e5e4e4;
@@ -41,12 +43,23 @@
     }
     #options {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      border-radius: 26px;
-      width: 17%;
-      height: 6%;
+      bottom: 100px;
+      right: 10px;
+      border-radius: 16px;
+      width: 70px;
+      height: 25px;
       font-size: 15px;
+      color: black;
+      padding-right: 50px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      padding-top: 15px;
+      padding-right: 10px;
+      padding-bottom: 35px;
+      padding-left: 6px;
+      min-width: 80px; /* Ensure enough space */
     }
     #close:hover,
     #close:focus {
@@ -66,50 +79,169 @@
       }
       100% {
         transform: scale(1,1);
-        animation-timing-function: ease-in-out;
+      }
+    }
+    
+    @keyframes animatetop {
+      0% {
+        transform: scale(0.3,0.3);
+      }
+      100% {
+        transform: scale(1,1);
       }
     }
 
     #popup_content {
       background-color: #fefefe;
-      margin: 15% auto;
-      /* 15% from the top and centered */
       padding: 20px;
       border: 1px solid #888;
-      width: 80%;
-      /* Could be more or less, depending on screen size */
-      /*
-      -webkit-animation-name: animatetop;
-      -webkit-animation-duration: 0.5s;
-      whats the difference between
-      -webkit-animation and animation?
-      */
-      animation-name: animatetop;
-      animation-duration: 0.4s
+      border-radius: 15px;
+      width: 70%;
+      max-width: 500px;
+      transform: scale(0.3);
+      opacity: 0;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      -webkit-animation: animatetop 0.2s ease-in-out;
+      animation: animatetop 0.2s ease-in-out;
     }
-    #popup_controls {
-      display: none;
-      /* Hidden by default */
+    #warning-popup{
       position: fixed;
-      /* Stay in place */
-      z-index: 1;
-      /* Sit on top */
       left: 0;
       top: 0;
       width: 100%;
-      /* Full width */
       height: 100%;
-      /* Full height */
-      overflow: auto;
-      /* Enable scroll if needed */
-      background-color: rgb(0,0,0);
-      /* Fallback color */
-      background-color: rgba(0,0,0,0.4);
-      /* Black w/ opacity */
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      pointer-events: none;
+    }
+    #warning-content{
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 15px;
+      width: 70%;
+      max-width: 500px;
+      transform: scale(0.3);
+      opacity: 0;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      -webkit-animation: animatetop 0.2s ease-in-out;
+      animation: animatetop 0.2s ease-in-out;
+    }
+    #popup_controls {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      pointer-events: none;
+    }
+    #popup_controls.show-modal #popup_content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    #popup_controls.show-modal {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #warning-popup.show-warning #warning-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    #warning-popup.show-warning {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
     }
     fieldset {
-      width: 75%;
+      width: 80%;
+      border-radius: 15px;
     }
+    footer {
+            text-align: center;
+            padding: 1.5rem;
+            background:rgb(132, 141, 150);
+            color: white;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            right: 1px;
+            width: 100%;
+        }
+        footer a {
+            color:rgb(9, 49, 41);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        #howto-div{
+          border-radius: 20px;
+          font-size: 16px;
+          width: 45%;
+          min-width: 300px;
+          background-color: rgb(202, 193, 193);
+          margin: auto;
+          margin-top: 30px;
+          padding: 13px;
+        }
+        #title-icon{
+          vertical-align: middle; 
+          margin-right: 8px;
+          width: 48px;
+          height: 48px;
+        }
+        #title {
+          font-family: "Lato", serif;
+          font-weight: 600;
+          font-style: normal;
+          font-size: 32px;
+        }
+        #title-div {
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          width: fit-content; 
+          margin: auto;
+        }
+        .slidercontainer {
+          margin-top: 11px;
+        }
+        #slider_value {
+          font-size: 20px;
+          color: green;
+          font-weight: bold;
+          margin-left: 40px;
+        }
+        #clear-button{
+          background-color: green;
+          color: white;
+          border-radius: 15px;
+          padding: 6px;
+        }
+        #cancel-button{
+          background-color: red;
+          color: white;
+          border-radius: 15px;
+          padding: 6px;
+        }
+        #button-container {
+          display:flex;
+          justify-content: space-between;
+          width: 100%;
+        }
   </style>
 </head>
 <body>
@@ -119,11 +251,20 @@
   </p>
 
   <div id="team1div">
-    <textarea id="names" oninput="auto_grow(this)" onfocus="clearfields()"></textarea>
+    <textarea id="names" name="names" oninput="auto_grow(this)" onfocus="clearfields('textarea')"></textarea>
   </div>
 
   <div style="text-align: center;">
     <button id="pick_teams_button" onclick="getTeams()">Pick Teams</button>
+  </div>
+  <div id="warning-popup">
+    <div id="warning-content">
+    <p>Warning, are you sure you want to clear all the names you entered?</p>
+    <div id="button-container">
+    <button id="clear-button">CLEAR</button>
+    <button id="cancel-button">CANCEL</button>
+    </div>
+    </div>
   </div>
   <div id="popup_controls">
     <div id="popup_content">
@@ -150,7 +291,7 @@
     var button = document.getElementById("options");
     var span = document.getElementById("close");
     button.onclick = function() {
-      popup_controls.style.display = "block";
+      popup_controls.classList.add('show-modal');
       //this line displays the modal
       //or in other words, the popup
     }
@@ -158,13 +299,13 @@
       //the span element contains an X for
       //the user to click on to close the modal
       check_radio_buttons();
-      popup_controls.style.display = "none";
+      popup_controls.classList.remove('show-modal');
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == popup_controls) {
         check_radio_buttons();
-        popup_controls.style.display = "none";
+        popup_controls.classList.remove('show-modal');
       }
     }
     var radio_button1 = document.getElementById("rbutton1");
