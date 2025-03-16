@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  clearfields();
+  clearfields("app.js");
 });
 var textarea = document.getElementById("names");
 var team_divs = document.getElementsByClassName("team_divs");
@@ -21,14 +21,29 @@ function auto_grow(element) {
 textarea.style.height = 0;
 textarea.style.height = textarea.scrollHeight + "px";
 
-function clearfields() {
-  while (team_divs.length != 0) {
+function clearfields(origin) {
+  if(origin === "textarea" && originalNames !== null){
+    //show warning
+    let warning_popup = document.getElementById("warning-popup");
+    let clear_button = document.getElementById("clear-button");
+    let cancel_button = document.getElementById("cancel-button");
+    warning_popup.classList.add('show-warning');
+    textarea.blur();
+    clear_button.onclick = function() {
+        while (team_divs.length != 0) {
     team_divs[0].remove();
   }
   textarea.value = '';
   originalNames = null; // Reset originalNames when clearing fields
   textarea.style.height = 0;
   textarea.style.height = textarea.scrollHeight + "px";
+  warning_popup.classList.remove("show-warning");
+      }
+    cancel_button.onclick = function(){
+      warning_popup.classList.remove("show-warning");
+    }
+  }
+  
 }
 
 function shrink(element) {
