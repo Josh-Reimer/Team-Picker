@@ -1,8 +1,8 @@
 'use strict';
 // Cache store name to save static resources - add version number
-const CACHE_STATIC = 'static-cache-v4';
+const CACHE_STATIC = 'static-cache-v5';
 // Add cache version list to help with cleanup
-const CACHE_VERSIONS = ['static-cache-v1', 'static-cache-v2', 'static-cache-v3','static-cache-v4'];
+const CACHE_VERSIONS = ['static-cache-v1', 'static-cache-v2', 'static-cache-v3','static-cache-v4','static-cache-v5'];
 // Minimal set of files to cache to be a PWA
 
 /*

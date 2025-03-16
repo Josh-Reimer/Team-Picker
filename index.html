@@ -247,8 +247,12 @@
           background-color: red;
           color: white;
           border-radius: 15px;
-          margin-left: 120px;
           padding: 6px;
+        }
+        #button-container {
+          display:flex;
+          justify-content: space-between;
+          width: 100%;
         }
   </style>
 </head>
@@ -288,8 +292,10 @@
   <div id="warning-popup">
     <div id="warning-content">
     <p>Warning, are you sure you want to clear all the names you entered?</p>
+    <div id="button-container">
     <button id="clear-button">CLEAR</button>
     <button id="cancel-button">CANCEL</button>
+    </div>
     </div>
   </div>
   
