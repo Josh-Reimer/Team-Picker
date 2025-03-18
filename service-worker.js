@@ -21,8 +21,12 @@ const FILES_TO_CACHE = [
     './images/icon-128x128.png',
     './images/icon-144x144.png',
     './index.html',
+    './index.css',
     './manifest.json',
-    './app.js'
+    './app.js',
+    './sw-register.js',
+    './load-count.js',
+    './options-menu.js'
 ];
 
 // FUNCS
