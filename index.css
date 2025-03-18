@@ -1,4 +1,3 @@
-/*PUBLIC CODE START*/
 textarea {
     border-radius: 30px;
     text-align: center;
@@ -165,28 +164,6 @@ textarea {
     width: 80%;
     border-radius: 15px;
   }
-  /*PUBLIC CODE END*/
-  /*PROPRIETARY CODE START*/
-  footer {
-          text-align: center;
-          padding: 1.5rem;
-          background:rgb(132, 141, 150);
-          color: white;
-          position: fixed;
-          bottom: 0px;
-          left: 0px;
-          right: 1px;
-          width: 100%;
-      }
-      footer a {
-          color:rgb(9, 49, 41);
-          text-decoration: none;
-      }
-      footer a:hover {
-          text-decoration: underline;
-      }
-    /*PROPRIETARY CODE END*/
-    /*PUBLIC CODE START*/
       #howto-div{
         border-radius: 20px;
         font-size: 16px;
@@ -242,4 +219,3 @@ textarea {
         justify-content: space-between;
         width: 100%;
       }
-      /*PUBLIC CODE END*/

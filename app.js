@@ -1,4 +1,3 @@
-// PUBLIC CODE START
 window.addEventListener('load', () => {
   clearfields("app.js");
 });
@@ -118,11 +117,6 @@ function getTeams() {
 
   // Generate new teams using the original names
   let teams = pickTeams(originalNames, number_of_teams);
-  // PUBLIC CODE END
-  // PROPRIETARY CODE START
-  saveToFile(teams);
-  // PROPRIETARY CODE END
-  // PUBLIC CODE START
 
   // Display the teams
   textarea.insertAdjacentHTML("afterend", getTeamsHTML(teams.slice(1)));
@@ -133,37 +127,6 @@ function getTeams() {
   textarea.setAttribute("style", "height:" + (textarea.scrollHeight) + "px;overflow-y:hidden;");
   shrink(textarea);
 }
-// PUBLIC CODE END
-// PROPRIETARY CODE START
-function saveToFile(teamslist) {
-    // Get the textarea content
-    var textareaContent = teamslist;
-    
-    // Check if we're online
-    if (navigator.onLine) {
-        var xhttp = new XMLHttpRequest();
-        
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                
-            }
-        };
-        
-        xhttp.open("POST", "save_to_file.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("textarea_content=" + encodeURIComponent(textareaContent));
-    } else {
-        // If offline, store in localStorage
-        try {
-            localStorage.setItem('savedTeams', JSON.stringify(textareaContent));
-           
-        } catch (e) {
-           
-        }
-    }
-}
-// PROPRIETARY CODE END
-// PUBLIC CODE START
 function getTeamsHTML(teamlist) {
   /*
   this function loops through every list of teams in the list of teams called teamlist.
@@ -186,4 +149,3 @@ function getTeamsHTML(teamlist) {
   }
   return html;
 }
-// PUBLIC CODE END
