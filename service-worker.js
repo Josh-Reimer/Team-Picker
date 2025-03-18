@@ -24,7 +24,8 @@ const FILES_TO_CACHE = [
     './index.css',
     './manifest.json',
     './app.js',
-    './sw-register.js'
+    './sw-register.js',
+    './load-count.js'
 ];
 
 // FUNCS
