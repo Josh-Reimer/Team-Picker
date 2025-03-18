@@ -14,4 +14,4 @@ done
 # Delete all other files EXCEPT the ones listed above and preserve .git directory
 find . -type f ! -name "index.html" ! -name "app.js" ! -name ".git*" ! -name "strip_proprietary.sh" -delete
 
-echo "Proprietary code and markers removed. Only index.html + app.js retained for public release."
+echo "Proprietary code and markers removed. Only index.html + app.js + index.css retained for public release."
