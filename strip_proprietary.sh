@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the files to keep in the public repo
-PUBLIC_FILES=("index.html" "app.js")
+PUBLIC_FILES=("index.html" "app.js" "index.css")
 
 # Remove proprietary code and its comment markers from the selected public files
 for FILE in "${PUBLIC_FILES[@]}"; do
