@@ -1,3 +1,4 @@
+/*PUBLIC CODE START*/
 textarea {
     border-radius: 30px;
     text-align: center;
@@ -164,6 +165,8 @@ textarea {
     width: 80%;
     border-radius: 15px;
   }
+  /*PUBLIC CODE END*/
+  /*PROPRIETARY CODE START*/
   footer {
           text-align: center;
           padding: 1.5rem;
@@ -182,6 +185,8 @@ textarea {
       footer a:hover {
           text-decoration: underline;
       }
+    /*PROPRIETARY CODE END*/
+    /*PUBLIC CODE START*/
       #howto-div{
         border-radius: 20px;
         font-size: 16px;
@@ -237,3 +242,4 @@ textarea {
         justify-content: space-between;
         width: 100%;
       }
+      /*PUBLIC CODE END*/
