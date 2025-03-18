@@ -23,7 +23,8 @@ const FILES_TO_CACHE = [
     './index.html',
     './index.css',
     './manifest.json',
-    './app.js'
+    './app.js',
+    './sw-register.js'
 ];
 
 // FUNCS
