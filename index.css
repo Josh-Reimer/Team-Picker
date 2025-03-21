@@ -164,24 +164,6 @@ textarea {
     width: 80%;
     border-radius: 15px;
   }
-  footer {
-          text-align: center;
-          padding: 1.5rem;
-          background:rgb(132, 141, 150);
-          color: white;
-          position: fixed;
-          bottom: 0px;
-          left: 0px;
-          right: 1px;
-          width: 100%;
-      }
-      footer a {
-          color:rgb(9, 49, 41);
-          text-decoration: none;
-      }
-      footer a:hover {
-          text-decoration: underline;
-      }
       #howto-div{
         border-radius: 20px;
         font-size: 16px;

@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 strip_proprietary.sh
+=======
+strip_proprietary.sh
+.vscode
+>>>>>>> public-release
