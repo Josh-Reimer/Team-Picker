@@ -1,0 +1,82 @@
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  textarea {
+    background-color: dimgrey;
+  }
+  textarea::placeholder{  
+    color: lightgray;
+  }
+  .team_divs {
+    background-color: dimgray;
+  }
+  #pick_teams_button {
+    background-color: #211f29;
+    color: lightgray;
+  }
+  body {
+    background-color: #3a393b;
+  }
+  h1 { 
+    color: lightgray;
+  }
+  #options {
+    color: ghostwhite;
+    background-color: black;
+  }
+  #close:hover,
+  #close:focus {
+    color: whitesmoke;
+  }
+  #close {
+    color: ghostwhite; 
+  }
+  #popup_content {
+    background-color: black;
+    color: ghostwhite;
+    border: 1px solid #888;
+  }
+  #warning-popup{
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  #warning-content{
+    background-color: black;
+    color: whitesmoke;
+    border: 1px solid #888;
+  }
+  #popup_controls {
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+  #edit-popup{
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  #edit-content{
+    background-color: black;
+    color: whitesmoke;
+    border: 1px solid #888; 
+  }
+  #save-regenerate-button{
+    background-color: greenyellow;
+    color: black;
+  }
+  #name-editor{ 
+    background-color: #3a393b;
+  }
+      #howto-div{
+        background-color: #807a79; 
+      }
+      #slider_value {
+        color: lightgreen;
+      }
+      #clear-button{
+        background-color: green;
+        color: white;
+      }
+      #edit-button{
+        background-color: orange;
+        color: white;
+      }
+      #cancel-button{
+        background-color: red;
+        color: white;
+      }
+}

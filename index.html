@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Team Picker</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index-dark.css">
+  
 </head>
 <body>
-  <h1>Team Picker</h1>
-  <p>
-    Only one name per line
-  </p>
-
-  <div id="team1div">
-    <textarea id="names" name="names" oninput="auto_grow(this)" onfocus="clearfields('textarea')"></textarea>
+ 
+  <div id="title-div">
+    <img src="https://teampicker.ca/images/icon-512x512.png" alt="teampicker icon" id="title-icon">
+    <h1 id="title">Team Picker</h1>
   </div>
-
-  <div style="text-align: center;">
-    <button id="pick_teams_button" onclick="getTeams()">Pick Teams</button>
-  </div>
+  
+    <div id="team1div">
+      <textarea id="names" name="names" oninput="auto_grow(this)" onfocus="clearfields('textarea')"></textarea>
+    </div>
+  
+    <div style="text-align: center;">
+      <button id="pick_teams_button" onclick="getTeams()" type="submit">Pick Teams</button>
+    </div>
+  
   <div id="warning-popup">
     <div id="warning-content">
     <p>Warning, are you sure you want to clear all the names you entered?</p>
